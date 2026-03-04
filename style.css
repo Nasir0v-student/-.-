@@ -1,4 +1,4 @@
-/* main.css */
+/* style.css */
 * {
     margin: 0;
     padding: 0;
@@ -6,128 +6,124 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-    background-color: #e8ecef;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f5f5;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    line-height: 1.5;
-    color: #2c3e50;
 }
 
 h1 {
     text-align: center;
     margin: 20px 0;
-    font-weight: 400;
-    font-size: 2rem;
-    color: #2c3e50;
-    letter-spacing: 1px;
+    font-size: 32px;
+    font-weight: normal;
+    color: #333;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 20px;
 }
 
 .calculator {
-    max-width: 500px;
-    margin: 0 auto 30px;
-    padding: 25px;
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border: 1px solid #dde0e5;
-}
-
-input[type="text"], 
-input[type="password"], 
-input[type="email"] {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 8px 0;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    font-size: 14px;
-    background-color: #f9fafc;
-    transition: border-color 0.2s;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus {
-    outline: none;
-    border-color: #7f8c8d;
-    background-color: #ffffff;
-}
-
-button {
-    padding: 10px 16px;
-    font-size: 14px;
-    background-color: #7f8c8d;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin: 4px;
-    min-width: 45px;
-    transition: background-color 0.2s;
-}
-
-button:hover {
-    background-color: #6c7a7d;
-}
-
-button:active {
-    transform: translateY(1px);
-}
-
-#result {
-    font-size: 18px;
-    margin: 15px 0 10px;
-    padding: 15px;
-    background-color: #f4f6f9;
+    flex: 0 0 500px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    border-left: 4px solid #7f8c8d;
-    word-break: break-word;
 }
 
 .percentage-input,
 .power-input {
-    background-color: #f8fafd;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 15px;
-    border: 1px solid #e2e8f0;
+    flex: 0 0 200px;
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.percentage-input h3,
+.power-input h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #444;
+    text-align: center;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 12px;
+    margin: 3px;
+    font-size: 14px;
+    background-color: #808080;
+    color: white;
+    border: 1px solid #666;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #909090;
+}
+
+.percentage-input button,
+.power-input button {
+    width: 100%;
+    margin: 10px 0 0 0;
+}
+
+#result {
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 #unitsConverter {
-    margin-top: 25px;
-    padding-top: 20px;
-    border-top: 2px solid #ecf0f1;
+    margin-top: 20px;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
 }
 
-#unitsConverter h2 {
-    font-size: 1.3rem;
-    font-weight: 400;
-    margin-bottom: 15px;
-    color: #34495e;
+#unitsConverter h3 {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #444;
 }
 
 #unitsConverter select {
-    padding: 10px;
-    margin: 5px 10px 5px 0;
-    border: 1px solid #d0d7de;
-    border-radius: 6px;
-    background-color: #f9fafc;
-    font-size: 14px;
-    min-width: 80px;
-}
-
-#unitsConverter select:focus {
-    outline: none;
-    border-color: #7f8c8d;
+    padding: 6px;
+    margin: 5px 5px 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
 }
 
 .footer {
     margin-top: auto;
-    background-color: #ffffff;
-    border-top: 1px solid #dee2e7;
-    padding: 25px 0;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
 }
 
 .container {
@@ -137,60 +133,32 @@ button:active {
 }
 
 .footer p {
-    color: #5d6d7e;
-    margin: 8px 0;
+    color: #666;
+    margin: 5px 0;
     font-size: 14px;
 }
 
 .footer a {
-    color: #5d6d7e;
-    text-decoration: none;
-    border-bottom: 1px dashed #b0c0d0;
+    color: #666;
+    text-decoration: underline;
 }
 
-.footer a:hover {
-    color: #2c3e50;
-    border-bottom-color: #2c3e50;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-/* Сетка для кнопок калькулятора */
-.calculator > div:first-of-type {
+.buttons {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-    margin: 10px 0;
+    gap: 5px;
 }
 
-/* Стили для кнопок операций */
-button[onclick*="appendOperator('+')"],
-button[onclick*="appendOperator('-')"],
-button[onclick*="appendOperator('*')"],
-button[onclick*="appendOperator('/')"],
-button[onclick*="appendOperator('(')"],
-button[onclick*="appendOperator(')')"] {
-    background-color: #95a5a6;
-}
-
-button[onclick*="calculate()"] {
-    background-color: #5d6d7e;
-    grid-column: span 2;
-}
-
-button[onclick*="clearCalculator()"] {
-    background-color: #b0bcc7;
-    color: #2c3e50;
-    grid-column: span 2;
-}
-
-button[onclick*="togglePercentageInput()"],
-button[onclick*="togglePowerInput()"] {
-    background-color: #8aa0b0;
+/* Для мобильных устройств */
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .percentage-input,
+    .power-input {
+        width: 100%;
+        max-width: 500px;
+    }
 }
