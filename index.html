@@ -3,169 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Calculator+</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Устанавливаем минимальную высоту для body */
-        }
-
-        .navbar {
-            background-color: white;
-            border-radius: 10px;
-            padding: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .calculator {
-            padding: 40px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            margin: 0 auto;
-            flex-grow: 1; /* Позволяет калькулятору занимать доступное пространство */
-        }
-
-        input[type="text"], input[type="password"], input[type="email"] {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #708090; 
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            margin: 10px; 
-        }
-
-        button:hover {
-            background-color: #778899; 
-        }
-
-        #result {
-            font-size: 18px;
-            margin-top: 10px;
-        }
-
-        h1 {
-            text-align: center;
-            margin-bottom: 20px; 
-        }
-
-        .percentage-input, .power-input {
-            display: none;
-            margin-top: 10px;
-        }
-
-        .footer {
-            background-color: #f0f0f0; /* Цвет фона для footer совпадает с фоном страницы */
-            padding: 10px; /* Отступы внутри footer */
-      }
-      #unitsConverter {
-        margin-top: 20px;
-    }
-
-    #unitsConverter select {
-        padding: 5px;
-        margin-right: 10px;
-    }
-    </style>
 </head>
 <body>
 
-    <h1>Calculator+</h1> 
-    <div class="calculator">
-        <input type="text" id="numbers" placeholder="Введите выражение или число" onfocus="this.select()">
-        
-        <div>
-          <button onclick="appendOperator('1')">1</button>
-          <button onclick="appendOperator('2')">2</button>
-          <button onclick="appendOperator('3')">3</button>
-          <button onclick="appendOperator('4')">4</button>
-          <button onclick="appendOperator('5')">5</button>
-          <button onclick="appendOperator('6')">6</button>
-          <button onclick="appendOperator('7')">7</button>
-          <button onclick="appendOperator('8')">8</button>
-          <button onclick="appendOperator('9')">9</button>
-          <button onclick="appendOperator('0')">0</button>
-          <button onclick="appendOperator('.')">.</button> 
-          <button onclick="appendOperator('(')"> ( </button>
-          <button onclick="appendOperator(')')"> ) </button>
-          <button onclick="appendOperator('+')">+</button>
-          <button onclick="appendOperator('-')">-</button>
-          <button onclick="appendOperator('*')">*</button>
-          <button onclick="appendOperator('/')">/</button>
-          <button onclick="togglePercentageInput()">%</button>
-          <button onclick="togglePowerInput()">^</button>
-          <button onclick="calculate()">Вычислить</button>
-          <button onclick="clearCalculator()">Очистить</button>
-        </div>
-        <p id="result">Результат: 0</p>
-        <div id="unitsConverter">
-            <h2>Конвертер единиц измерения</h2>
-            <input type="text" id="unitValue" placeholder="Введите значение">
-            <select id="fromUnit">
-                <option value="мм">мм</option>
-                <option value="см">см</option>
-                <option value="м">м</option>
-                <option value="км">км</option>
-                <option value="дюймы">дюймы</option>
-                <option value="футы">футы</option>
-                <option value="ярды">ярды</option>
-                <option value="мили">мили</option>
-            </select>
-            в
-            <select id="toUnit">
-                <option value="мм">мм</option>
-                <option value="см">см</option>
-                <option value="м">м</option>
-                <option value="км">км</option>
-                <option value="дюймы">дюймы</option>
-                <option value="футы">футы</option>
-                <option value="ярды">ярды</option>
-                <option value="мили">мили</option>
-            </select>
-            <button onclick="convertUnits()">Конвертировать</button>
-        </div>
+    <h1>Calculator+</h1>
     
-        <div id="result"></div>
-    
-    </div>
-
+    <div class="main-container">
+        <!-- Блок с процентами слева -->
         <div class="percentage-input" id="percentageInput">
+            <h3>Проценты</h3>
             <input type="text" id="percentageValue" placeholder="Введите проценты">
             <input type="text" id="baseValue" placeholder="От какого числа?">
             <button onclick="calculatePercentageValue()">Вычислить процент</button>
         </div>
 
+        <!-- Основной калькулятор по центру -->
+        <div class="calculator">
+            <input type="text" id="numbers" placeholder="Введите выражение или число" onfocus="this.select()">
+            
+            <div class="buttons">
+                <button onclick="appendOperator('1')">1</button>
+                <button onclick="appendOperator('2')">2</button>
+                <button onclick="appendOperator('3')">3</button>
+                <button onclick="appendOperator('4')">4</button>
+                <button onclick="appendOperator('5')">5</button>
+                <button onclick="appendOperator('6')">6</button>
+                <button onclick="appendOperator('7')">7</button>
+                <button onclick="appendOperator('8')">8</button>
+                <button onclick="appendOperator('9')">9</button>
+                <button onclick="appendOperator('0')">0</button>
+                <button onclick="appendOperator('.')">.</button> 
+                <button onclick="appendOperator('(')">(</button>
+                <button onclick="appendOperator(')')">)</button>
+                <button onclick="appendOperator('+')">+</button>
+                <button onclick="appendOperator('-')">-</button>
+                <button onclick="appendOperator('*')">*</button>
+                <button onclick="appendOperator('/')">/</button>
+                <button onclick="togglePercentageInput()">%</button>
+                <button onclick="togglePowerInput()">^</button>
+                <button onclick="calculate()">Вычислить</button>
+                <button onclick="clearCalculator()">Очистить</button>
+            </div>
+            
+            <p id="result">Результат: 0</p>
+            
+            <div id="unitsConverter">
+                <h3>Конвертер единиц измерения</h3>
+                <input type="text" id="unitValue" placeholder="Введите значение">
+                <select id="fromUnit">
+                    <option value="мм">мм</option>
+                    <option value="см">см</option>
+                    <option value="м">м</option>
+                    <option value="км">км</option>
+                    <option value="дюймы">дюймы</option>
+                    <option value="футы">футы</option>
+                    <option value="ярды">ярды</option>
+                    <option value="мили">мили</option>
+                </select>
+                <span>в</span>
+                <select id="toUnit">
+                    <option value="мм">мм</option>
+                    <option value="см">см</option>
+                    <option value="м">м</option>
+                    <option value="км">км</option>
+                    <option value="дюймы">дюймы</option>
+                    <option value="футы">футы</option>
+                    <option value="ярды">ярды</option>
+                    <option value="мили">мили</option>
+                </select>
+                <button onclick="convertUnits()">Конвертировать</button>
+            </div>
+        </div>
+
+        <!-- Блок со степенью справа -->
         <div class="power-input" id="powerInput">
-           <input type="text" id="baseNumber" placeholder="Введите число">
-           <input type="text" id="exponentNumber" placeholder="Введите степень">
-           <button onclick="calculatePower()">Вычислить степень</button>
-           <br><br> 
-       </div>
+            <h3>Степень</h3>
+            <input type="text" id="baseNumber" placeholder="Введите число">
+            <input type="text" id="exponentNumber" placeholder="Введите степень">
+            <button onclick="calculatePower()">Вычислить степень</button>
+        </div>
+    </div>
 
-      
-   </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="d-flex flex-column">
+                <p>Калькулятор "Calculator+"</p>
+                <p>Для того чтобы зарегистрироваться пишите желаемый Nickname, ваш Email и Password вот сюда:
+                   <a href="mailto:hollyjammer2@gmail.com">hollyjammer2@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
 
-   <script>
+    <script>
     function appendOperator(operator) {
         document.getElementById('numbers').value += operator;
         document.getElementById('numbers').focus();
@@ -193,15 +124,11 @@
     }
     
     function togglePercentageInput() {
-        const percentageInput = document.getElementById('percentageInput');
-        percentageInput.style.display = percentageInput.style.display === 'block' ? 'none' : 'block';
-        document.getElementById('powerInput').style.display = 'none'; 
+        // Эта функция больше не нужна, но оставим для совместимости
     }
 
     function togglePowerInput() {
-        const powerInput = document.getElementById('powerInput');
-        powerInput.style.display = powerInput.style.display === 'block' ? 'none' : 'block';
-        document.getElementById('percentageInput').style.display = 'none'; 
+        // Эта функция больше не нужна, но оставим для совместимости
     }
 
     function calculatePercentageValue() {
@@ -210,17 +137,11 @@
         if (!isNaN(percentage) && !isNaN(base)) {
             const result = (percentage / 100) * base;
             document.getElementById('result').innerHTML = 'Результат: ' + result;
-
-            clearPercentageInputs();
-            document.getElementById('percentageInput').style.display = 'none';
+            document.getElementById('percentageValue').value = '';
+            document.getElementById('baseValue').value = '';
         } else {
             document.getElementById('result').innerHTML = 'Ошибка';
         }
-    }
-
-    function clearPercentageInputs() {
-        document.getElementById('percentageValue').value = '';
-        document.getElementById('baseValue').value = '';
     }
 
     function calculatePower() {
@@ -229,29 +150,23 @@
         
         if (!isNaN(base) && !isNaN(exponent)) {
             const result = Math.pow(base, exponent);
-            document.getElementById('result').innerHTML = 'Результат:' + result;
-
-            clearPowerInputs();
-            document.getElementById('powerInput').style.display = 'none';
+            document.getElementById('result').innerHTML = 'Результат: ' + result;
+            document.getElementById('baseNumber').value = '';
+            document.getElementById('exponentNumber').value = '';
         } else {
             document.getElementById('result').innerHTML = 'Ошибка';
         }
     }
 
-    function clearPowerInputs() {
+    function clearCalculator() {
+        document.getElementById('numbers').value = '';
+        document.getElementById('result').innerHTML = 'Результат: 0';
+        document.getElementById('percentageValue').value = '';
+        document.getElementById('baseValue').value = '';
         document.getElementById('baseNumber').value = '';
         document.getElementById('exponentNumber').value = '';
     }
 
-    function clearCalculator() {
-        document.getElementById('numbers').value = '';
-        document.getElementById('result').innerHTML = 'Результат:' + '0';
-        clearPercentageInputs();
-        clearPowerInputs();
-        
-        document.getElementById('percentageInput').style.display = 'none';
-        document.getElementById('powerInput').style.display = 'none';
-    }
     function convertUnits() {
         const value = parseFloat(document.getElementById('unitValue').value);
         const fromUnit = document.getElementById('fromUnit').value;
@@ -262,7 +177,7 @@
             return;
         }
 
-        let meters; // Переводим все в метры
+        let meters;
 
         switch (fromUnit) {
             case 'мм': meters = value / 1000; break;
@@ -295,19 +210,7 @@
 
         document.getElementById('result').innerHTML = 'Результат: ' + result.toFixed(5) + ' ' + toUnit; 
     }
-    
-</script>
-<footer class='footer'>
-    <div class='container p-4'>
-        <div class='d-flex flex-column'>
-            <p>Калькулятор "Calculator+"</p>
-            <p>Для того чтобы зарегистрироваться пишите желаемый Nickname, ваш Email и Password вот сюда:
-               <a href='mailto:hollyjammer2@gmail.com'>hollyjammer2@gmail.com</a></p>
-        </div>
-</div>
- </footer>
+    </script>
 
 </body>
-
 </html>
-
